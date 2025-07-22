@@ -12,4 +12,11 @@ Edge Gateway控制两个东西：（1）sms消息发送，（2）Buzzer控制
 * 写sms的监听以及发送的quick function（测试阶段先用 mqttX 去模拟发送警报payload）
 #### （2）Buzzer控制（IR302 pyModbus）  
 * pass
-    
+
+## 模块
+### model
+model部分publish topic: "/modelPublish"  
+model部分代码返回预测结果的payload格式：  
+{"cow1": [1,1,0], "cow2": [1,2,1], ...} or {}  
+[1,1,0]: grid(1,1), 0表示未出圈  
+[1,2,1]: grid(1,2), 1表示出圈

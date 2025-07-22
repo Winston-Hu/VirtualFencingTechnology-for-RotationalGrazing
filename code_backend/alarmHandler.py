@@ -1,16 +1,36 @@
 import logging
 import atexit
 import time
+import json
+from pathlib import Path
 from pyModbusTCP.client import ModbusClient
 from logging.handlers import RotatingFileHandler
 
 from lib.buzzer_modbusTCP import BuzzerModbus
+from lib.listen_event import alarm_dictionary, start_mqtt_listener, _dict_lock
+from lib import publisher
 
 
 # use JIG02 LAN / IR302 and relay config
-HOST_IR302_TRANS = "192.168.2.25"
+HOST_IR302_TRANS = "10.166.179.25"
 PORT_IR302_TRANS = 8233
 SLAVE_RELAY = 2
+POOLING_INTERVAL = 10
+
+# MQTT config
+BROKER = "10.166.179.5"
+BROKER_PORT = 1883
+USERNAME = ''
+PASSWORD = ''
+SMS_TOPIC = "/smsControl"
+
+last_alarm_dic = {}
+
+
+BASE_DIR = Path(__file__).resolve().parent
+LOG_DIR = BASE_DIR / "logs"
+LOG_DIR.mkdir(parents=True, exist_ok=True)
+log_file = LOG_DIR / "alarmHandler.log"
 
 
 def setup_logging():
@@ -26,7 +46,7 @@ def setup_logging():
 
     # File handler with rotation
     file_handler = RotatingFileHandler(
-        filename="gps_data.log",
+        filename=log_file,
         maxBytes=5 * 1024 * 1024,
         backupCount=3,
         encoding="utf-8",
@@ -37,13 +57,34 @@ def setup_logging():
     logger.addHandler(file_handler)
 
 
+def alarm_send_sms(cow_id, grid, isOutside):
+    json_data = {
+        "cow_id":   str(cow_id),
+        "grid":     str(grid),
+        "isOutside": isOutside  # "On" or "Back"
+    }
+    json_payload = json.dumps(json_data, default=str)
+    result = publisher.push_message(BROKER, BROKER_PORT, USERNAME, PASSWORD, SMS_TOPIC, json_payload)
+    if result[0] == 0:
+        logging.info(f"Sent SMS to {cow_id}: {isOutside}")
+    else:
+        logging.error(f"Failed to send SMS to {cow_id}: {isOutside}, Error code: {result[0]}")
+    logging.info(f"Sent SMS to {cow_id}: {isOutside}")
+
+
 def sendAlarm():
     """
     1. get payload from AI prediction
     2. send mqtt payload: {# out of range}, /BLEpublish
     3. use buzzer_modbusTCP to control buzzer ring
     """
+    global last_alarm_dic
     setup_logging()
+    try:
+        start_mqtt_listener()
+        logging.info("Successfully listen to event -> alarm_dictionary")
+    except Exception as e:
+        logging.error("Error happen when listen event")
 
     buzzer = None
     buzzer_client = ModbusClient(host=HOST_IR302_TRANS, port=PORT_IR302_TRANS, timeout=3)
@@ -56,245 +97,90 @@ def sendAlarm():
         try:
             if buzzer:
                 buzzer.close()
-        except:
+        except Exception as close_all_clients_error:
+            logging.error(f"close_all_clients_error: {close_all_clients_error}")
             pass
 
     atexit.register(_close_all_clients)
 
     # state machine
     buzzer_on = False  # default -> not ring
-    last_display_time = time.time()
     last_time_update = 0
 
     while True:
         try:
             current_time = time.time()
 
-            # get_alarm_dictionary() expected payload:{"cow1": (200, 120), "cow2": (230, 90), ...} or {}
-            alarm_dic = get_alarm_dictionary()  # get the alarm cows info here
+            # get_alarm_dictionary() expected payload:{'cow1': [1,1]} or {}
+            with _dict_lock:
+                alarm_dic = alarm_dictionary.copy()  # get the alarm cows info here, need MQTT listen
             current_alarm_count = len(alarm_dic)  # count how many cows in alarm
             logging.info(f"(Alarm count: {current_alarm_count})")
 
-            # ------------------------------------------------------------------------------------------------------
-
-
-
-
-
-            # 不关注value的格式，此时已经在listen_event里放入location
-            process_alarm_duration(alarm_dic)
-            alarm_labels = get_device_dictionary(alarm_dic)
-            log_info("forward_msg_to_lcd", f"alarm_labels: {alarm_labels}")
-
-            mute_map = {d['ip']: d['mute'] for d in current_cfg}  # {192.168.2.21: 0->True, ...}
-
+            # alarm_dic -> {}
             if current_alarm_count == 0:
-                # 无报警，显示时间页面
-                if buzzer_on:
-                    # print("\n===========================无报警，关闭buzzer===========================\n")
-                    for dev in lcd_clients:
-                        try:
-                            if not dev["active"]:
-                                log_debug("forward_msg_to_lcd", f"can't write to the {dev['ip']} with 3 times out")
-                                continue
-
-                            if dev['buzzer'] and mute_map.get(dev['ip'], False):
-                                with dev["lock"]:
-                                    # print(f"start buzzer off: {datetime.now()}")
-                                    dev['buzzer'].set_off()
-                                    # print(f"end buzzer off: {datetime.now()}")
-                                    log_info("forward_msg_to_lcd", f"Turned off buzzer for {dev['ip']}")
-
-                                    dev['fail_count'] = 0
-                        except ConnectionError as e:
-                            log_error("forward_msg_to_lcd", f"Failed to turn off buzzer: {e}")
-
-                            dev['fail_count'] += 1
-                            log_error("forward_msg_to_lcd",
-                                      f"{dev['ip']} fail to turn off ({dev['fail_count']} times): {e}")
-                            if dev['fail_count'] >= 3:
-                                dev['active'] = False
-                                # dev['lcd'].client.close()
-                                log_info("forward_msg_to_lcd", f"{dev['ip']} offline, continue")
-                    buzzer_on = False
-
-                # force buzzer off when current_alarm_count == 0 and 10s interval
-                for dev in lcd_clients:
-                    try:
-                        if not dev["active"]:
-                            log_debug("forward_msg_to_lcd", f"can't write to the {dev['ip']} with 3 times out")
-                            continue
-
-                        if dev['buzzer'] and mute_map.get(dev['ip'], False) and current_time - last_time_update >= 10:
-                            with dev["lock"]:
-                                # print(f"start buzzer off: {datetime.now()}")
-                                dev['buzzer'].set_off()
-                                log_info("forward_msg_to_lcd", f"Forced {dev['ip']}'s buzzer off")
-                    except Exception as e:
-                        log_error("forward_msg_to_lcd", f"Failed to turn off {dev['ip']}'s buzzer: {e}")
-                # update time in 10s interval
-                if current_time - last_time_update >= 10:
-                    for dev in lcd_clients:
-                        if not dev["active"]:
-                            log_debug("forward_msg_to_lcd", f"can't write to the {dev['ip']} with 3 times out")
-                            continue
-
-                        with dev["lock"]:
-                            try:
-                                # print("====Try to write the switch_page====")
-                                dev["lcd"].switch_page(0)
-                                # print("====end switch_page====")
-                                # print("====Try to write time_page====")
-                                # if title != pre_title:
-                                #     pre_title = title
-                                #     dev["lcd"].set_title(title)
-                                dev["lcd"].set_title(title)
-                                log_info("forward_msg_to_lcd", f"Sent current Title to LCD at {dev['ip']}")
-                                dev["lcd"].set_current_time()
-                                log_info("forward_msg_to_lcd", f"Sent current time to LCD at {dev['ip']}")
-
-                                dev['fail_count'] = 0
-                            except Exception as e:
-                                log_error("forward_msg_to_lcd", f"Time update failed for {dev['ip']}: {e}",
-                                          exc_info=True)
-
-                                dev['fail_count'] += 1
-                                log_error("forward_msg_to_lcd",
-                                          f"{dev['ip']} fail to turn off ({dev['fail_count']} times): {e}")
-                                if dev['fail_count'] >= 3:
-                                    dev['active'] = False
-                                    # dev['lcd'].client.close()
-                                    log_info("forward_msg_to_lcd", f"{dev['ip']} offline, continue")
+                # buzzer control
+                # force buzzer off
+                logging.info(current_time - last_time_update)
+                if current_time - last_time_update >= POOLING_INTERVAL:
                     last_time_update = current_time
+                    try:
+                        buzzer.set_off()
+                        logging.info("Forced buzzer off")
+                    except Exception as e:
+                        logging.error(f"Failed to turn off buzzer force: {e}")
 
-            # 改变报警的显示逻辑，一页一个设备，添加location
-            else:
-                # 有报警，显示报警页面
+                # turn off buzzer if buzzer on
+                if buzzer_on:
+                    try:
+                        buzzer.set_off()
+                        logging.info("Turn off the buzzer")
+                        buzzer_on = False
+                    except ConnectionError as e:
+                        logging.error(f"Failed to turn off buzzer: {e}")
+
+                # sms control
+                try:
+                    # sms payload, need to cancel the last alarm one
+                    if last_alarm_dic:
+                        for cow_id, grid in last_alarm_dic.items():
+                            alarm_send_sms(cow_id, grid, "Back")
+                        logging.info("Sent SMS clear for all previously alarmed cows")
+                    last_alarm_dic = {}  # Clear last_alarm_dic after sending
+                except Exception as e:
+                    logging.error(f"Sms clear sent error: {e}")
+
+            # alarm_dic -> {'cow1': [1, 1]}
+            elif current_alarm_count != 0:
+
+                # buzzer control
                 if not buzzer_on:
-                    # print("\n===========================有报警，开启buzzer===========================\n")
-                    for dev in lcd_clients:
-                        try:
-                            if not dev['active']:
-                                continue
+                    try:
+                        buzzer.set_on()
+                        logging.info(f"Turn on the buzzer")
+                    except Exception as e:
+                        logging.error(f"Failed to turn on the buzzer: {e}")
+                buzzer_on = True
 
-                            if dev['buzzer'] and mute_map.get(dev['ip'], False):
-                                with dev["lock"]:
-                                    log_debug("forward_msg_to_lcd", f"Turning on buzzer for {dev['ip']}")
-                                    dev['buzzer'].set_on()
-                                    log_info("forward_msg_to_lcd", f"Turned on buzzer for {dev['ip']}")
+                try:
+                    for cow_id, grid in alarm_dic.items():
+                        # sms control
+                        if cow_id not in last_alarm_dic:
+                            alarm_send_sms(cow_id, grid, "On")
 
-                                    dev['fail_count'] = 0
-                        except ConnectionError as e:
-                            log_error("forward_msg_to_lcd", f"Failed to turn on buzzer: {e}")
+                    # Find cleared alarms (cows in last_alarm_dic but not in current alarm_dic)
+                    for cow_id, grid in last_alarm_dic.items():
+                        if cow_id not in alarm_dic:
+                            alarm_send_sms(cow_id, grid, "Back")
 
-                            dev['fail_count'] += 1
-                            log_error("forward_msg_to_lcd",
-                                      f"{dev['ip']} fail to turn on ({dev['fail_count']} times): {e}")
-                            if dev['fail_count'] >= 3:
-                                dev['active'] = False
-                                # dev['lcd'].client.close()
-                                log_info("forward_msg_to_lcd", f"{dev['ip']} offline, continue")
-                    buzzer_on = True
+                    last_alarm_dic = alarm_dic.copy()
+                except Exception as e:
+                    logging.error(f"SMS handling error: {e}")
 
-                labels_changed = alarm_labels != last_labels
-                config = ConfigCache.get_instance().get_config()
-                display_time = config['lcd_scrolling_alarm_interval']
-
-                if labels_changed or (current_time - last_display_time >= display_time):
-                    num_labels = len(alarm_labels)
-                    line1, line2 = "", ""
-                    duration1, duration2 = 0, 0
-
-                    # print("nums_labels: ", num_labels)
-                    if num_labels == 0:
-                        # clear the page
-                        for dev in lcd_clients:
-                            if not dev['active']:
-                                continue
-
-                            with dev["lock"]:
-                                try:
-                                    dev['lcd'].switch_page(1)
-                                    dev['lcd'].write_line(1, " " * 16, LCDDisplayModbus.DISPLAY_RED)
-                                    dev['lcd'].write_line(2, " " * 16, LCDDisplayModbus.DISPLAY_RED)
-                                    dev['lcd'].switch_page(0)
-                                    log_info("forward_msg_to_lcd", f"Cleared alarm page content for {dev['ip']}")
-
-                                    dev['fail_count'] = 0
-                                except (ConnectionError, ValueError) as e:
-                                    log_error("forward_msg_to_lcd",
-                                              f"Failed to clear alarm page content for {dev['ip']}: {e}")
-
-                                    dev['fail_count'] += 1
-                                    log_error("forward_msg_to_lcd",
-                                              f"{dev['ip']} fail to turn off ({dev['fail_count']} times): {e}")
-                                    if dev['fail_count'] >= 3:
-                                        dev['active'] = False
-                                        # dev['lcd'].client.close()
-                                        log_info("forward_msg_to_lcd", f"{dev['ip']} offline, continue")
-
-                    # 在这一部分进行修改，添加location，一页显示一个device
-                    else:
-                        if alarm_index >= num_labels:
-                            alarm_index = 0
-                        j_code = label_to_jcode.get(alarm_labels[alarm_index])
-                        log_info("forward_msg_to_lcd", f"j_code is {j_code}")
-
-                        if j_code:
-                            device_info = cache.get_device_info(j_code)
-                            holder = device_info.get('holder', 'Unknown')
-                            event_name = alarm_dic[j_code][0]
-                            location = alarm_dic[j_code][1]  # str or None(PB)
-                            # location还需要和area对应，将location的坐标mapping到area
-                            if location != '' and location is not None:
-                                x, y, z = map(float, location.strip("()").split(", "))
-                                formatted_location = f"({x:.2f}, {y:.2f}, {z:.2f})"
-                                area = location_to_area.get(formatted_location, location)
-                            else:
-                                area = "locating.."
-                            log_info("forward_msg_to_lcd", f"e: {event_name}, l: {location}, a: {area}")
-
-                            if "PB_" in event_name:
-                                device_type = "PB"
-                            else:
-                                device_type = "Tracker"
-
-                            if device_type == "PB":
-                                line1 = f"{alarm_index + 1}. {alarm_labels[alarm_index]}"
-                                line2 = f" "
-                            elif device_type == "Tracker":
-                                line1 = f"{alarm_index + 1}. {holder}"
-                                line2 = f"{area}"
-
-                        if j_code:
-                            duration2 = current_time - alarm_duration.get(j_code, current_time)
-                        for dev in lcd_clients:
-                            if not dev['active']:
-                                continue
-                            with dev["lock"]:
-                                try:
-                                    c1 = get_alarm_color(duration2)
-                                    c2 = get_alarm_color(duration2)
-                                    log_debug("forward_msg_to_lcd",
-                                              f"[display] dev={dev['ip']} dur1={duration1:.1f} → color1={c1}, "
-                                              f"dur2={duration2:.1f} → color2={c2}")
-                                    send_alarm_message(dev["lcd"], line1, line2, 0, duration2)
-                                    dev['fail_count'] = 0
-                                except Exception as e:
-                                    dev['fail_count'] += 1
-                                    log_error("forward_msg_to_lcd",
-                                              f"{dev['ip']} fail to write color ({dev['fail_count']} times): {e}")
-                                    if dev['fail_count'] >= 3:
-                                        dev['active'] = False
-                                        log_info("forward_msg_to_lcd", f"{dev['ip']} offline, continue")
-                        alarm_index = (alarm_index + 1) % num_labels
-
-                    last_labels = alarm_labels.copy()
-                    last_display_time = current_time
         except Exception as e:
-            log_error("forward_msg_to_lcd", f"Unexpected error in main loop: {e}")
+            logging.error(f"Failed in while loop: {e}")
 
-        time.sleep(0.1)
+        time.sleep(1)
 
 
 if __name__ == "__main__":
