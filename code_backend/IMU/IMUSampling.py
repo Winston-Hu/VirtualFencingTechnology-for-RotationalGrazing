@@ -20,8 +20,8 @@ SAMPLES_PER_CLASS   = 100
 TRIGGER_INTERVAL_S  = 0.5
 TIMEOUT_S = 4.0
 
-BASE_DIR   = os.path.dirname(__file__)
-CSV_FILE   = os.path.join(BASE_DIR, "imu_data_test.csv")
+BASE_DIR = os.path.dirname(__file__)
+CSV_FILE = os.path.join(BASE_DIR, "dataset/imu_data.csv")
 CSV_HEADER = [
     "a_x", "a_y", "a_z",
     "g_x", "g_y", "g_z",

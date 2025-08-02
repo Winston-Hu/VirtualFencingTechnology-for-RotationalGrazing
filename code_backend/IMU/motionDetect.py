@@ -14,17 +14,17 @@ from _pridictClass import load_resources, predict
 
 model, scaler, le, device = load_resources()
 
-DEVICE_ADDRESS      = "E5796C3F-1C80-8E92-A222-0EEF42F6ED28"
-CUSTOM_SVC_UUID     = "4A981234-1CC4-E7C1-C757-F1267DD021E8"
+DEVICE_ADDRESS  = "E5796C3F-1C80-8E92-A222-0EEF42F6ED28"
+CUSTOM_SVC_UUID = "4A981234-1CC4-E7C1-C757-F1267DD021E8"
 CUSTOM_WRT_CHAR_UUID = "4A981235-1CC4-E7C1-C757-F1267DD021E8"
-CUSTOM_RD_CHAR_UUID  = "4A981236-1CC4-E7C1-C757-F1267DD021E8"
+CUSTOM_RD_CHAR_UUID = "4A981236-1CC4-E7C1-C757-F1267DD021E8"
 
-SAMPLES_PER_CLASS   = 100
-TRIGGER_INTERVAL_S  = 2
+SAMPLES_PER_CLASS = 100
+TRIGGER_INTERVAL_S = 2
 TIMEOUT_S = 4.0
 
-BASE_DIR   = os.path.dirname(__file__)
-CSV_FILE   = os.path.join(BASE_DIR, "imu_data_test001.csv")
+BASE_DIR = os.path.dirname(__file__)
+CSV_FILE = os.path.join(BASE_DIR, "dataset/imu_data_testing.csv")
 CSV_HEADER = [
     "a_x", "a_y", "a_z",
     "g_x", "g_y", "g_z",
