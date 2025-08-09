@@ -24,3 +24,128 @@
 2025-07-22 18:04:11,960 [INFO] MQTT(10.166.179.5:1883) connected, rc=0
 2025-07-22 18:04:19,950 [INFO] Successfully published to /smsControl: {"cow_id": "cow1", "grid": "[-3, 12]", "isOutside": "Back"}
 2025-07-22 18:04:33,223 [INFO] Successfully published to /smsControl: {"cow_id": "cow2", "grid": "[10, 4]", "isOutside": "Back"}
+2025-07-23 13:07:12,377 [INFO] Successfully published to /smsControl: {"cow_id": "cow1", "grid": "[-3, 12]", "isOutside": "On"}
+2025-07-23 13:07:12,379 [INFO] Successfully published to /smsControl: {"cow_id": "cow2", "grid": "[10, 4]", "isOutside": "On"}
+2025-07-23 13:07:12,420 [INFO] MQTT(10.166.179.5:1883) connected, rc=0
+2025-07-23 13:07:32,626 [INFO] Successfully published to /smsControl: {"cow_id": "cow1", "grid": "[-3, 12]", "isOutside": "Back"}
+2025-07-23 13:07:45,073 [INFO] Successfully published to /smsControl: {"cow_id": "cow2", "grid": "[10, 4]", "isOutside": "Back"}
+2025-07-23 13:56:43,025 [WARNING] MQTT(10.166.179.5:1883) disconnected, rc=16
+2025-07-23 13:56:43,027 [WARNING] MQTT(10.166.179.5:1883) disconnected, rc=16
+2025-07-23 14:36:18,855 [INFO] Successfully published to /smsControl: {"cow_id": "cow1", "grid": "[-3, 12]", "isOutside": "On"}
+2025-07-23 14:36:18,856 [INFO] Successfully published to /smsControl: {"cow_id": "cow2", "grid": "[10, 4]", "isOutside": "On"}
+2025-07-23 14:36:18,922 [INFO] MQTT(10.166.179.5:1883) connected, rc=0
+2025-07-23 14:37:07,089 [INFO] Successfully published to /smsControl: {"cow_id": "cow1", "grid": "[-3, 12]", "isOutside": "Back"}
+2025-07-23 14:47:53,574 [INFO] Successfully published to /smsControl: {"cow_id": "cow1", "grid": "[-3, 12]", "isOutside": "On"}
+2025-07-23 14:47:53,577 [INFO] Successfully published to /smsControl: {"cow_id": "cow2", "grid": "[10, 4]", "isOutside": "On"}
+2025-07-23 14:47:53,629 [INFO] MQTT(10.166.179.5:1883) connected, rc=0
+2025-07-23 14:48:03,612 [INFO] Successfully published to /smsControl: {"cow_id": "cow1", "grid": "[-3, 12]", "isOutside": "Back"}
+2025-07-23 14:48:12,122 [INFO] Successfully published to /smsControl: {"cow_id": "cow2", "grid": "[10, 4]", "isOutside": "Back"}
+2025-08-04 20:01:03,107 [INFO] Successfully published to /BLEPublish2: {"data": "This is a test"}
+2025-08-04 20:01:55,445 [INFO] Successfully published to /BLEPublish2: {"data": "This is a test"}
+2025-08-04 21:23:50,277 [INFO] Successfully published to /smsControl: {"cow_id": "cow1", "grid": "[-3, 12]", "isOutside": "On"}
+2025-08-04 21:23:50,278 [INFO] Successfully published to /smsControl: {"cow_id": "cow2", "grid": "[10, 4]", "isOutside": "On"}
+2025-08-04 21:23:50,310 [INFO] MQTT(10.166.179.5:1883) connected, rc=0
+2025-08-04 21:24:01,328 [INFO] Successfully published to /smsControl: {"cow_id": "cow3", "grid": "[-99, -99]", "isOutside": "On"}
+2025-08-04 21:24:10,369 [INFO] Successfully published to /smsControl: {"cow_id": "cow1", "grid": "[-99, -99]", "isOutside": "Back"}
+2025-08-04 21:24:10,371 [INFO] Successfully published to /smsControl: {"cow_id": "cow3", "grid": "[-99, -99]", "isOutside": "Back"}
+2025-08-04 21:24:18,786 [INFO] Successfully published to /smsControl: {"cow_id": "cow2", "grid": "[10, 4]", "isOutside": "Back"}
+2025-08-04 21:24:29,226 [INFO] Successfully published to /smsControl: {"cow_id": "cow1", "grid": "[-99, -99]", "isOutside": "On"}
+2025-08-04 21:24:29,228 [INFO] Successfully published to /smsControl: {"cow_id": "cow2", "grid": "[-99, -99]", "isOutside": "On"}
+2025-08-04 21:24:29,228 [INFO] Successfully published to /smsControl: {"cow_id": "cow3", "grid": "[-99, -99]", "isOutside": "On"}
+2025-08-04 21:24:45,291 [INFO] Successfully published to /smsControl: {"cow_id": "cow1", "grid": "[-99, -99]", "isOutside": "Back"}
+2025-08-04 21:24:45,293 [INFO] Successfully published to /smsControl: {"cow_id": "cow3", "grid": "[-99, -99]", "isOutside": "Back"}
+2025-08-04 21:24:57,474 [INFO] Successfully published to /smsControl: {"cow_id": "cow2", "grid": "[10, 4]", "isOutside": "Back"}
+2025-08-04 21:25:06,394 [INFO] Successfully published to /smsControl: {"cow_id": "cow1", "grid": "[-99, -99]", "isOutside": "On"}
+2025-08-04 21:25:06,396 [INFO] Successfully published to /smsControl: {"cow_id": "cow2", "grid": "[-99, -99]", "isOutside": "On"}
+2025-08-04 21:25:06,397 [INFO] Successfully published to /smsControl: {"cow_id": "cow3", "grid": "[-99, -99]", "isOutside": "On"}
+2025-08-04 21:38:22,937 [INFO] Successfully published to /smsControl: {"cow_id": "cow1", "grid": "[-3, 12]", "isOutside": "On"}
+2025-08-04 21:38:22,939 [INFO] Successfully published to /smsControl: {"cow_id": "cow2", "grid": "[10, 4]", "isOutside": "On"}
+2025-08-04 21:38:22,974 [INFO] MQTT(10.166.179.5:1883) connected, rc=0
+2025-08-04 21:38:29,977 [INFO] Successfully published to /smsControl: {"cow_id": "cow1", "grid": "[-3, 12]", "isOutside": "Back"}
+2025-08-04 21:38:38,246 [INFO] Successfully published to /smsControl: {"cow_id": "cow2", "grid": "[10, 4]", "isOutside": "Back"}
+2025-08-04 21:45:05,380 [INFO] Successfully published to /smsControl: {"cow_id": "cow1", "grid": "[-3, 12]", "isOutside": "On"}
+2025-08-04 21:45:05,383 [INFO] Successfully published to /smsControl: {"cow_id": "cow2", "grid": "[10, 4]", "isOutside": "On"}
+2025-08-04 21:45:05,410 [INFO] MQTT(10.166.179.5:1883) connected, rc=0
+2025-08-04 21:45:13,420 [INFO] Successfully published to /smsControl: {"cow_id": "cow1", "grid": "[-3, 12]", "isOutside": "Back"}
+2025-08-04 21:45:22,750 [INFO] Successfully published to /smsControl: {"cow_id": "cow2", "grid": "[10, 4]", "isOutside": "Back"}
+2025-08-04 21:46:13,850 [INFO] Successfully published to /smsControl: {"cow_id": "cow1", "grid": "[-3, 12]", "isOutside": "On"}
+2025-08-04 21:46:13,852 [INFO] Successfully published to /smsControl: {"cow_id": "cow2", "grid": "[10, 4]", "isOutside": "On"}
+2025-08-04 21:46:27,914 [INFO] Successfully published to /smsControl: {"cow_id": "cow1", "grid": "[-3, 12]", "isOutside": "Back"}
+2025-08-04 21:46:39,221 [INFO] Successfully published to /smsControl: {"cow_id": "cow2", "grid": "[10, 4]", "isOutside": "Back"}
+2025-08-04 21:49:05,444 [INFO] Successfully published to /smsControl: {"cow_id": "cow1", "grid": "[-3, 12]", "isOutside": "On"}
+2025-08-04 21:49:05,446 [INFO] Successfully published to /smsControl: {"cow_id": "cow2", "grid": "[10, 4]", "isOutside": "On"}
+2025-08-04 21:49:15,488 [INFO] Successfully published to /smsControl: {"cow_id": "cow1", "grid": "[-3, 12]", "isOutside": "Back"}
+2025-08-04 21:49:25,005 [INFO] Successfully published to /smsControl: {"cow_id": "cow2", "grid": "[10, 4]", "isOutside": "Back"}
+2025-08-04 21:52:58,633 [INFO] Successfully published to /smsControl: {"cow_id": "cow1", "grid": "[-3, 12]", "isOutside": "On"}
+2025-08-04 21:52:58,634 [INFO] Successfully published to /smsControl: {"cow_id": "cow2", "grid": "[10, 4]", "isOutside": "On"}
+2025-08-04 21:53:04,666 [INFO] Successfully published to /smsControl: {"cow_id": "cow1", "grid": "[-3, 12]", "isOutside": "Back"}
+2025-08-04 21:53:12,195 [INFO] Successfully published to /smsControl: {"cow_id": "cow2", "grid": "[10, 4]", "isOutside": "Back"}
+2025-08-04 21:54:11,296 [INFO] Successfully published to /smsControl: {"cow_id": "cow1", "grid": "[-3, 12]", "isOutside": "On"}
+2025-08-04 21:54:11,298 [INFO] Successfully published to /smsControl: {"cow_id": "cow2", "grid": "[10, 4]", "isOutside": "On"}
+2025-08-04 21:54:21,341 [INFO] Successfully published to /smsControl: {"cow_id": "cow1", "grid": "[-3, 12]", "isOutside": "Back"}
+2025-08-04 21:54:29,607 [INFO] Successfully published to /smsControl: {"cow_id": "cow2", "grid": "[10, 4]", "isOutside": "Back"}
+2025-08-04 21:55:11,748 [INFO] Successfully published to /smsControl: {"cow_id": "cow1", "grid": "[-3, 12]", "isOutside": "On"}
+2025-08-04 21:55:11,750 [INFO] Successfully published to /smsControl: {"cow_id": "cow2", "grid": "[10, 4]", "isOutside": "On"}
+2025-08-04 21:55:21,805 [INFO] Successfully published to /smsControl: {"cow_id": "cow1", "grid": "[-3, 12]", "isOutside": "Back"}
+2025-08-04 21:55:30,078 [INFO] Successfully published to /smsControl: {"cow_id": "cow2", "grid": "[10, 4]", "isOutside": "Back"}
+2025-08-04 21:56:35,588 [INFO] Successfully published to /smsControl: {"cow_id": "cow1", "grid": "[-3, 12]", "isOutside": "On"}
+2025-08-04 21:56:35,590 [INFO] Successfully published to /smsControl: {"cow_id": "cow2", "grid": "[10, 4]", "isOutside": "On"}
+2025-08-04 21:56:43,649 [INFO] Successfully published to /smsControl: {"cow_id": "cow1", "grid": "[-3, 12]", "isOutside": "Back"}
+2025-08-04 21:56:52,886 [INFO] Successfully published to /smsControl: {"cow_id": "cow2", "grid": "[10, 4]", "isOutside": "Back"}
+2025-08-04 21:57:15,790 [INFO] Successfully published to /smsControl: {"cow_id": "cow1", "grid": "[-3, 12]", "isOutside": "On"}
+2025-08-04 21:57:15,791 [INFO] Successfully published to /smsControl: {"cow_id": "cow2", "grid": "[10, 4]", "isOutside": "On"}
+2025-08-04 21:57:23,837 [INFO] Successfully published to /smsControl: {"cow_id": "cow1", "grid": "[-3, 12]", "isOutside": "Back"}
+2025-08-04 21:57:32,429 [INFO] Successfully published to /smsControl: {"cow_id": "cow2", "grid": "[10, 4]", "isOutside": "Back"}
+2025-08-05 11:05:56,778 [INFO] Successfully published to /BLEPublish2: {"RSSI": -70}
+2025-08-05 11:05:56,800 [INFO] MQTT(10.166.179.5:1883) connected, rc=0
+2025-08-05 11:05:59,109 [INFO] Successfully published to /BLEPublish2: {"RSSI": -61}
+2025-08-05 11:06:00,332 [INFO] Successfully published to /BLEPublish2: {"RSSI": -62}
+2025-08-05 11:06:01,512 [INFO] Successfully published to /BLEPublish2: {"RSSI": -66}
+2025-08-05 11:06:02,680 [INFO] Successfully published to /BLEPublish2: {"RSSI": -59}
+2025-08-05 11:06:03,841 [INFO] Successfully published to /BLEPublish2: {"RSSI": -66}
+2025-08-05 11:06:39,953 [INFO] Successfully published to /BLEPublish2: {"R_Location": [16, 0], "RSSI": -57}
+2025-08-05 11:06:39,978 [INFO] MQTT(10.166.179.5:1883) connected, rc=0
+2025-08-05 11:06:43,448 [INFO] Successfully published to /BLEPublish2: {"R_Location": [16, 0], "RSSI": -65}
+2025-08-05 11:06:45,794 [INFO] Successfully published to /BLEPublish2: {"R_Location": [16, 0], "RSSI": -63}
+2025-08-05 11:06:46,953 [INFO] Successfully published to /BLEPublish2: {"R_Location": [16, 0], "RSSI": -63}
+2025-08-05 11:06:48,104 [INFO] Successfully published to /BLEPublish2: {"R_Location": [16, 0], "RSSI": -68}
+2025-08-05 11:06:49,260 [INFO] Successfully published to /BLEPublish2: {"R_Location": [16, 0], "RSSI": -69}
+2025-08-05 11:06:50,406 [INFO] Successfully published to /BLEPublish2: {"R_Location": [16, 0], "RSSI": -64}
+2025-08-05 11:06:51,563 [INFO] Successfully published to /BLEPublish2: {"R_Location": [16, 0], "RSSI": -63}
+2025-08-05 11:06:52,709 [INFO] Successfully published to /BLEPublish2: {"R_Location": [16, 0], "RSSI": -60}
+2025-08-05 11:06:53,849 [INFO] Successfully published to /BLEPublish2: {"R_Location": [16, 0], "RSSI": -62}
+2025-08-05 11:45:18,906 [INFO] Successfully published to /smsControl: {"cow_id": "cow1", "grid": "[-3, 12]", "isOutside": "On"}
+2025-08-05 11:45:18,935 [INFO] MQTT(10.166.179.5:1883) connected, rc=0
+2025-08-05 11:46:51,584 [INFO] Successfully published to /smsControl: {"cow_id": "cow1", "grid": "[-3, 12]", "isOutside": "Back"}
+2025-08-05 11:47:17,582 [INFO] Successfully published to /smsControl: {"cow_id": "cow2", "grid": "[10, 4]", "isOutside": "On"}
+2025-08-05 11:48:55,246 [INFO] Successfully published to /smsControl: {"cow_id": "cow2", "grid": "[10, 4]", "isOutside": "Back"}
+2025-08-05 12:21:36,230 [INFO] Successfully published to /smsControl: {"cow_id": "cow1", "grid": "[-99, -99]", "isOutside": "abnormal"}
+2025-08-05 12:21:36,251 [INFO] MQTT(10.166.179.5:1883) connected, rc=0
+2025-08-05 13:52:02,178 [WARNING] MQTT(10.166.179.5:1883) disconnected, rc=7
+2025-08-05 13:52:10,288 [INFO] MQTT(10.166.179.5:1883) connected, rc=0
+2025-08-05 14:45:04,648 [INFO] Successfully published to /smsControl: {"cow_id": "cow1", "grid": "[-3, 12]", "isOutside": "On"}
+2025-08-05 14:45:04,704 [INFO] MQTT(10.166.179.5:1883) connected, rc=0
+2025-08-05 14:45:24,076 [INFO] Successfully published to /smsControl: {"cow_id": "cow1", "grid": "[-3, 12]", "isOutside": "Back"}
+2025-08-05 15:07:46,824 [INFO] Successfully published to /smsControl: {"cow_id": "cow1", "grid": "[10, 4]", "isOutside": "On"}
+2025-08-05 15:08:05,509 [INFO] Successfully published to /smsControl: {"cow_id": "cow1", "grid": "[10, 4]", "isOutside": "Back"}
+2025-08-05 15:08:49,434 [INFO] Successfully published to /smsControl: {"cow_id": "cow1", "grid": "[-3, 12]", "isOutside": "On"}
+2025-08-05 15:09:06,753 [INFO] Successfully published to /smsControl: {"cow_id": "cow1", "grid": "[-3, 12]", "isOutside": "Back"}
+2025-08-05 15:19:23,845 [INFO] Successfully published to /smsControl: {"cow_id": "cow1", "grid": "[10, 4]", "isOutside": "On"}
+2025-08-05 15:19:23,868 [INFO] MQTT(10.166.179.5:1883) connected, rc=0
+2025-08-05 15:19:39,044 [INFO] Successfully published to /smsControl: {"cow_id": "cow1", "grid": "[10, 4]", "isOutside": "Back"}
+2025-08-05 15:20:12,681 [INFO] Successfully published to /smsControl: {"cow_id": "cow1", "grid": "[-3, 12]", "isOutside": "On"}
+2025-08-05 15:20:24,935 [INFO] Successfully published to /smsControl: {"cow_id": "cow1", "grid": "[-3, 12]", "isOutside": "Back"}
+2025-08-05 15:22:41,849 [INFO] Successfully published to /smsControl: {"cow_id": "cow1", "grid": "[10, 4]", "isOutside": "On"}
+2025-08-05 15:24:11,687 [INFO] Successfully published to /smsControl: {"cow_id": "cow1", "grid": "[10, 4]", "isOutside": "Back"}
+2025-08-05 15:24:59,582 [INFO] Successfully published to /smsControl: {"cow_id": "cow1", "grid": "[10, 4]", "isOutside": "On"}
+2025-08-05 15:25:13,163 [INFO] Successfully published to /smsControl: {"cow_id": "cow1", "grid": "[10, 4]", "isOutside": "Back"}
+2025-08-05 15:25:46,429 [INFO] Successfully published to /smsControl: {"cow_id": "cow1", "grid": "[-3, 12]", "isOutside": "On"}
+2025-08-05 15:25:57,657 [INFO] Successfully published to /smsControl: {"cow_id": "cow1", "grid": "[-3, 12]", "isOutside": "Back"}
+2025-08-05 15:29:52,178 [INFO] Successfully published to /smsControl: {"cow_id": "cow1", "grid": "[-99, -99]", "isOutside": "abnormal"}
+2025-08-05 15:31:54,472 [INFO] Successfully published to /smsControl: {"cow_id": "cow1", "grid": "[-99, -99]", "isOutside": "abnormal"}
+2025-08-05 15:33:13,354 [INFO] Successfully published to /smsControl: {"cow_id": "cow1", "grid": "[-99, -99]", "isOutside": "abnormal"}
+2025-08-05 15:34:36,332 [INFO] Successfully published to /smsControl: {"cow_id": "cow1", "grid": "[-99, -99]", "isOutside": "abnormal"}
+2025-08-05 15:35:17,516 [INFO] Successfully published to /smsControl: {"cow_id": "cow1", "grid": "[-99, -99]", "isOutside": "abnormal"}
+2025-08-05 15:36:07,234 [INFO] Successfully published to /smsControl: {"cow_id": "cow1", "grid": "[-99, -99]", "isOutside": "abnormal"}
+2025-08-05 15:37:01,647 [INFO] Successfully published to /smsControl: {"cow_id": "cow1", "grid": "[-99, -99]", "isOutside": "abnormal"}
+2025-08-05 15:37:48,294 [INFO] Successfully published to /smsControl: {"cow_id": "cow1", "grid": "[-99, -99]", "isOutside": "abnormal"}

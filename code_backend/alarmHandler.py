@@ -58,11 +58,19 @@ def setup_logging():
 
 
 def alarm_send_sms(cow_id, grid, isOutside):
-    json_data = {
-        "cow_id":   str(cow_id),
-        "grid":     str(grid),
-        "isOutside": isOutside  # "On" or "Back"
-    }
+    if grid == [-99, -99]:
+        json_data = {
+            "cow_id": str(cow_id),
+            "grid": str(grid),
+            "isOutside": "abnormal"  # "On" or "Back"
+        }
+    else:
+        json_data = {
+            "cow_id": str(cow_id),
+            "grid": str(grid),
+            "isOutside": isOutside  # "On" or "Back"
+        }
+
     json_payload = json.dumps(json_data, default=str)
     result = publisher.push_message(BROKER, BROKER_PORT, USERNAME, PASSWORD, SMS_TOPIC, json_payload)
     if result[0] == 0:
@@ -156,7 +164,7 @@ def sendAlarm():
                 # buzzer control
                 if not buzzer_on:
                     try:
-                        buzzer.set_on()
+                        # buzzer.set_on()
                         logging.info(f"Turn on the buzzer")
                     except Exception as e:
                         logging.error(f"Failed to turn on the buzzer: {e}")

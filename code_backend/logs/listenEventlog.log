@@ -56,3 +56,764 @@
 2025-07-22 18:04:19,368 [DEBUG] add cow2 in alarm_dictionary
 2025-07-22 18:04:32,225 [DEBUG] Receive payload: {"cow1": [1, 3, 0], "cow2": [3, 3, 0], "cow3": [3, 3, 0]}
 2025-07-22 18:04:32,228 [DEBUG] del cow2 in alarm_dictionary
+2025-07-23 13:01:33,776 [INFO] Initialize MQTT client, connect 10.166.179.5:1883
+2025-07-23 13:01:33,895 [INFO] MQTT Listening started (singleton mode)
+2025-07-23 13:01:33,961 [INFO] MQTT Connection successful, start subscription /modelPublish
+2025-07-23 13:07:11,791 [DEBUG] Receive payload: {"cow1": [-3, 12, 1], "cow2": [10, 4, 1], "cow3": [3, 3, 0]}
+2025-07-23 13:07:11,792 [DEBUG] add cow1 in alarm_dictionary
+2025-07-23 13:07:11,792 [DEBUG] add cow2 in alarm_dictionary
+2025-07-23 13:07:31,934 [DEBUG] Receive payload: {"cow1": [1, 3, 0], "cow2": [10, 4, 1], "cow3": [3, 3, 0]}
+2025-07-23 13:07:31,935 [DEBUG] del cow1 in alarm_dictionary
+2025-07-23 13:07:31,935 [DEBUG] add cow2 in alarm_dictionary
+2025-07-23 13:07:44,422 [DEBUG] Receive payload: {"cow1": [1, 3, 0], "cow2": [3, 3, 0], "cow3": [3, 3, 0]}
+2025-07-23 13:07:44,423 [DEBUG] del cow2 in alarm_dictionary
+2025-07-23 13:52:23,904 [WARNING] MQTT Disconnected, return code MQTTErrorCode.MQTT_ERR_KEEPALIVE
+2025-07-23 13:52:23,909 [INFO] Unexpected disconnection, attempting to reconnect...
+2025-07-23 13:52:28,912 [ERROR] Reconnection failed (1/5): timed out
+Traceback (most recent call last):
+  File "/Users/jdk/github_repos/VirtualFencingTechnology-for-RotationalGrazing/code_backend/lib/listen_event.py", line 59, in on_disconnect
+    client.reconnect()
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/site-packages/paho/mqtt/client.py", line 1598, in reconnect
+    self._sock = self._create_socket()
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/site-packages/paho/mqtt/client.py", line 4609, in _create_socket
+    sock = self._create_socket_connection()
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/site-packages/paho/mqtt/client.py", line 4640, in _create_socket_connection
+    return socket.create_connection(addr, timeout=self._connect_timeout, source_address=source)
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/socket.py", line 857, in create_connection
+    raise err
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/socket.py", line 845, in create_connection
+    sock.connect(sa)
+TimeoutError: timed out
+2025-07-23 13:55:19,213 [ERROR] Reconnection failed (2/5): [Errno 51] Network is unreachable
+Traceback (most recent call last):
+  File "/Users/jdk/github_repos/VirtualFencingTechnology-for-RotationalGrazing/code_backend/lib/listen_event.py", line 59, in on_disconnect
+    client.reconnect()
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/site-packages/paho/mqtt/client.py", line 1598, in reconnect
+    self._sock = self._create_socket()
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/site-packages/paho/mqtt/client.py", line 4609, in _create_socket
+    sock = self._create_socket_connection()
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/site-packages/paho/mqtt/client.py", line 4640, in _create_socket_connection
+    return socket.create_connection(addr, timeout=self._connect_timeout, source_address=source)
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/socket.py", line 857, in create_connection
+    raise err
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/socket.py", line 845, in create_connection
+    sock.connect(sa)
+OSError: [Errno 51] Network is unreachable
+2025-07-23 13:55:24,223 [ERROR] Reconnection failed (3/5): [Errno 51] Network is unreachable
+Traceback (most recent call last):
+  File "/Users/jdk/github_repos/VirtualFencingTechnology-for-RotationalGrazing/code_backend/lib/listen_event.py", line 59, in on_disconnect
+    client.reconnect()
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/site-packages/paho/mqtt/client.py", line 1598, in reconnect
+    self._sock = self._create_socket()
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/site-packages/paho/mqtt/client.py", line 4609, in _create_socket
+    sock = self._create_socket_connection()
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/site-packages/paho/mqtt/client.py", line 4640, in _create_socket_connection
+    return socket.create_connection(addr, timeout=self._connect_timeout, source_address=source)
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/socket.py", line 857, in create_connection
+    raise err
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/socket.py", line 845, in create_connection
+    sock.connect(sa)
+OSError: [Errno 51] Network is unreachable
+2025-07-23 13:55:29,236 [ERROR] Reconnection failed (4/5): [Errno 51] Network is unreachable
+Traceback (most recent call last):
+  File "/Users/jdk/github_repos/VirtualFencingTechnology-for-RotationalGrazing/code_backend/lib/listen_event.py", line 59, in on_disconnect
+    client.reconnect()
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/site-packages/paho/mqtt/client.py", line 1598, in reconnect
+    self._sock = self._create_socket()
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/site-packages/paho/mqtt/client.py", line 4609, in _create_socket
+    sock = self._create_socket_connection()
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/site-packages/paho/mqtt/client.py", line 4640, in _create_socket_connection
+    return socket.create_connection(addr, timeout=self._connect_timeout, source_address=source)
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/socket.py", line 857, in create_connection
+    raise err
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/socket.py", line 845, in create_connection
+    sock.connect(sa)
+OSError: [Errno 51] Network is unreachable
+2025-07-23 13:56:25,484 [ERROR] Reconnection failed (5/5): timed out
+Traceback (most recent call last):
+  File "/Users/jdk/github_repos/VirtualFencingTechnology-for-RotationalGrazing/code_backend/lib/listen_event.py", line 59, in on_disconnect
+    client.reconnect()
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/site-packages/paho/mqtt/client.py", line 1598, in reconnect
+    self._sock = self._create_socket()
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/site-packages/paho/mqtt/client.py", line 4609, in _create_socket
+    sock = self._create_socket_connection()
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/site-packages/paho/mqtt/client.py", line 4640, in _create_socket_connection
+    return socket.create_connection(addr, timeout=self._connect_timeout, source_address=source)
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/socket.py", line 857, in create_connection
+    raise err
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/socket.py", line 845, in create_connection
+    sock.connect(sa)
+TimeoutError: timed out
+2025-07-23 13:56:41,299 [ERROR] Max reconnection attempts reached, stopping retries
+2025-07-23 14:36:01,409 [INFO] Initialize MQTT client, connect 10.166.179.5:1883
+2025-07-23 14:36:01,526 [INFO] MQTT Listening started (singleton mode)
+2025-07-23 14:36:01,581 [INFO] MQTT Connection successful, start subscription /modelPublish
+2025-07-23 14:36:18,400 [DEBUG] Receive payload: {"cow1": [-3, 12, 1], "cow2": [10, 4, 1], "cow3": [3, 3, 0]}
+2025-07-23 14:36:18,401 [DEBUG] add cow1 in alarm_dictionary
+2025-07-23 14:36:18,402 [DEBUG] add cow2 in alarm_dictionary
+2025-07-23 14:36:53,903 [DEBUG] Receive payload: {"cow1": [-3, 12, 1], "cow2": [10, 4, 1], "cow3": [3, 3, 0]}
+2025-07-23 14:36:53,905 [DEBUG] add cow1 in alarm_dictionary
+2025-07-23 14:36:53,905 [DEBUG] add cow2 in alarm_dictionary
+2025-07-23 14:36:57,508 [DEBUG] Receive payload: {"cow1": [-3, 12, 1], "cow2": [10, 4, 1], "cow3": [3, 3, 0]}
+2025-07-23 14:36:57,509 [DEBUG] add cow1 in alarm_dictionary
+2025-07-23 14:36:57,510 [DEBUG] add cow2 in alarm_dictionary
+2025-07-23 14:37:06,780 [DEBUG] Receive payload: {"cow1": [1, 3, 0], "cow2": [10, 4, 1], "cow3": [3, 3, 0]}
+2025-07-23 14:37:06,782 [DEBUG] del cow1 in alarm_dictionary
+2025-07-23 14:37:06,782 [DEBUG] add cow2 in alarm_dictionary
+2025-07-23 14:37:15,919 [DEBUG] Receive payload: {"cow1": [1, 3, 0], "cow2": [3, 3, 0], "cow3": [3, 3, 0]}
+2025-07-23 14:37:15,922 [DEBUG] del cow2 in alarm_dictionary
+2025-07-23 14:38:46,547 [INFO] Initialize MQTT client, connect 10.166.179.5:1883
+2025-07-23 14:38:46,643 [INFO] MQTT Listening started (singleton mode)
+2025-07-23 14:38:46,708 [INFO] MQTT Connection successful, start subscription /modelPublish
+2025-07-23 14:43:02,255 [INFO] Initialize MQTT client, connect 10.166.179.5:1883
+2025-07-23 14:43:07,259 [ERROR] MQTT Connection abnormality: timed out
+Traceback (most recent call last):
+  File "/Users/jdk/github_repos/VirtualFencingTechnology-for-RotationalGrazing/code_backend/lib/listen_event.py", line 116, in start_mqtt_listener
+    client.connect(broker_url, broker_port, keepalive=60)
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/site-packages/paho/mqtt/client.py", line 1435, in connect
+    return self.reconnect()
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/site-packages/paho/mqtt/client.py", line 1598, in reconnect
+    self._sock = self._create_socket()
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/site-packages/paho/mqtt/client.py", line 4609, in _create_socket
+    sock = self._create_socket_connection()
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/site-packages/paho/mqtt/client.py", line 4640, in _create_socket_connection
+    return socket.create_connection(addr, timeout=self._connect_timeout, source_address=source)
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/socket.py", line 857, in create_connection
+    raise err
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/socket.py", line 845, in create_connection
+    sock.connect(sa)
+TimeoutError: timed out
+2025-07-23 14:47:47,701 [INFO] Initialize MQTT client, connect 10.166.179.5:1883
+2025-07-23 14:47:48,155 [INFO] MQTT Listening started (singleton mode)
+2025-07-23 14:47:48,276 [INFO] MQTT Connection successful, start subscription /modelPublish
+2025-07-23 14:47:52,907 [DEBUG] Receive payload: {"cow1": [-3, 12, 1], "cow2": [10, 4, 1], "cow3": [3, 3, 0]}
+2025-07-23 14:47:52,908 [DEBUG] add cow1 in alarm_dictionary
+2025-07-23 14:47:52,909 [DEBUG] add cow2 in alarm_dictionary
+2025-07-23 14:48:03,054 [DEBUG] Receive payload: {"cow1": [1, 3, 0], "cow2": [10, 4, 1], "cow3": [3, 3, 0]}
+2025-07-23 14:48:03,056 [DEBUG] del cow1 in alarm_dictionary
+2025-07-23 14:48:03,056 [DEBUG] add cow2 in alarm_dictionary
+2025-07-23 14:48:10,717 [DEBUG] Receive payload: {"cow1": [1, 3, 0], "cow2": [3, 3, 0], "cow3": [3, 3, 0]}
+2025-07-23 14:48:10,719 [DEBUG] del cow2 in alarm_dictionary
+2025-07-23 16:02:11,558 [INFO] Initialize MQTT client, connect 10.166.179.5:1883
+2025-07-23 16:02:11,737 [INFO] MQTT Listening started (singleton mode)
+2025-07-23 16:02:11,811 [INFO] MQTT Connection successful, start subscription /modelPublish
+2025-07-23 16:02:28,572 [INFO] Initialize MQTT client, connect 10.166.179.5:1883
+2025-07-23 16:02:28,877 [INFO] MQTT Listening started (singleton mode)
+2025-07-23 16:02:29,022 [INFO] MQTT Connection successful, start subscription /modelPublish
+2025-07-23 16:03:17,296 [INFO] Initialize MQTT client, connect 10.166.179.5:1883
+2025-07-23 16:03:17,516 [INFO] MQTT Listening started (singleton mode)
+2025-07-23 16:03:17,596 [INFO] MQTT Connection successful, start subscription /modelPublish
+2025-07-23 16:04:27,826 [INFO] Initialize MQTT client, connect 10.166.179.5:1883
+2025-07-23 16:04:32,831 [ERROR] MQTT Connection abnormality: timed out
+Traceback (most recent call last):
+  File "/Users/jdk/github_repos/VirtualFencingTechnology-for-RotationalGrazing/code_backend/lib/listen_event.py", line 116, in start_mqtt_listener
+    client.connect(broker_url, broker_port, keepalive=60)
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/site-packages/paho/mqtt/client.py", line 1435, in connect
+    return self.reconnect()
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/site-packages/paho/mqtt/client.py", line 1598, in reconnect
+    self._sock = self._create_socket()
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/site-packages/paho/mqtt/client.py", line 4609, in _create_socket
+    sock = self._create_socket_connection()
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/site-packages/paho/mqtt/client.py", line 4640, in _create_socket_connection
+    return socket.create_connection(addr, timeout=self._connect_timeout, source_address=source)
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/socket.py", line 857, in create_connection
+    raise err
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/socket.py", line 845, in create_connection
+    sock.connect(sa)
+TimeoutError: timed out
+2025-07-23 16:04:52,629 [INFO] Initialize MQTT client, connect 10.166.179.5:1883
+2025-07-23 16:04:57,635 [ERROR] MQTT Connection abnormality: timed out
+Traceback (most recent call last):
+  File "/Users/jdk/github_repos/VirtualFencingTechnology-for-RotationalGrazing/code_backend/lib/listen_event.py", line 116, in start_mqtt_listener
+    client.connect(broker_url, broker_port, keepalive=60)
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/site-packages/paho/mqtt/client.py", line 1435, in connect
+    return self.reconnect()
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/site-packages/paho/mqtt/client.py", line 1598, in reconnect
+    self._sock = self._create_socket()
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/site-packages/paho/mqtt/client.py", line 4609, in _create_socket
+    sock = self._create_socket_connection()
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/site-packages/paho/mqtt/client.py", line 4640, in _create_socket_connection
+    return socket.create_connection(addr, timeout=self._connect_timeout, source_address=source)
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/socket.py", line 857, in create_connection
+    raise err
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/socket.py", line 845, in create_connection
+    sock.connect(sa)
+TimeoutError: timed out
+2025-07-23 16:05:24,433 [INFO] Initialize MQTT client, connect 10.166.179.5:1883
+2025-07-23 16:05:29,437 [ERROR] MQTT Connection abnormality: timed out
+Traceback (most recent call last):
+  File "/Users/jdk/github_repos/VirtualFencingTechnology-for-RotationalGrazing/code_backend/lib/listen_event.py", line 116, in start_mqtt_listener
+    client.connect(broker_url, broker_port, keepalive=60)
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/site-packages/paho/mqtt/client.py", line 1435, in connect
+    return self.reconnect()
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/site-packages/paho/mqtt/client.py", line 1598, in reconnect
+    self._sock = self._create_socket()
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/site-packages/paho/mqtt/client.py", line 4609, in _create_socket
+    sock = self._create_socket_connection()
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/site-packages/paho/mqtt/client.py", line 4640, in _create_socket_connection
+    return socket.create_connection(addr, timeout=self._connect_timeout, source_address=source)
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/socket.py", line 857, in create_connection
+    raise err
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/socket.py", line 845, in create_connection
+    sock.connect(sa)
+TimeoutError: timed out
+2025-07-23 16:07:41,123 [INFO] Initialize MQTT client, connect 10.166.179.5:1883
+2025-07-23 16:07:41,346 [INFO] MQTT Listening started (singleton mode)
+2025-07-23 16:07:41,417 [INFO] MQTT Connection successful, start subscription /modelPublish
+2025-07-23 16:07:59,502 [INFO] Initialize MQTT client, connect 10.166.179.5:1883
+2025-07-23 16:08:04,506 [ERROR] MQTT Connection abnormality: timed out
+Traceback (most recent call last):
+  File "/Users/jdk/github_repos/VirtualFencingTechnology-for-RotationalGrazing/code_backend/lib/listen_event.py", line 116, in start_mqtt_listener
+    client.connect(broker_url, broker_port, keepalive=60)
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/site-packages/paho/mqtt/client.py", line 1435, in connect
+    return self.reconnect()
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/site-packages/paho/mqtt/client.py", line 1598, in reconnect
+    self._sock = self._create_socket()
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/site-packages/paho/mqtt/client.py", line 4609, in _create_socket
+    sock = self._create_socket_connection()
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/site-packages/paho/mqtt/client.py", line 4640, in _create_socket_connection
+    return socket.create_connection(addr, timeout=self._connect_timeout, source_address=source)
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/socket.py", line 857, in create_connection
+    raise err
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/socket.py", line 845, in create_connection
+    sock.connect(sa)
+TimeoutError: timed out
+2025-07-23 16:08:10,151 [INFO] Initialize MQTT client, connect 10.166.179.5:1883
+2025-07-23 16:08:15,155 [ERROR] MQTT Connection abnormality: timed out
+Traceback (most recent call last):
+  File "/Users/jdk/github_repos/VirtualFencingTechnology-for-RotationalGrazing/code_backend/lib/listen_event.py", line 116, in start_mqtt_listener
+    client.connect(broker_url, broker_port, keepalive=60)
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/site-packages/paho/mqtt/client.py", line 1435, in connect
+    return self.reconnect()
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/site-packages/paho/mqtt/client.py", line 1598, in reconnect
+    self._sock = self._create_socket()
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/site-packages/paho/mqtt/client.py", line 4609, in _create_socket
+    sock = self._create_socket_connection()
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/site-packages/paho/mqtt/client.py", line 4640, in _create_socket_connection
+    return socket.create_connection(addr, timeout=self._connect_timeout, source_address=source)
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/socket.py", line 857, in create_connection
+    raise err
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/socket.py", line 845, in create_connection
+    sock.connect(sa)
+TimeoutError: timed out
+2025-07-23 16:08:25,033 [INFO] Initialize MQTT client, connect 10.166.179.5:1883
+2025-07-23 16:08:30,037 [ERROR] MQTT Connection abnormality: timed out
+Traceback (most recent call last):
+  File "/Users/jdk/github_repos/VirtualFencingTechnology-for-RotationalGrazing/code_backend/lib/listen_event.py", line 116, in start_mqtt_listener
+    client.connect(broker_url, broker_port, keepalive=60)
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/site-packages/paho/mqtt/client.py", line 1435, in connect
+    return self.reconnect()
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/site-packages/paho/mqtt/client.py", line 1598, in reconnect
+    self._sock = self._create_socket()
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/site-packages/paho/mqtt/client.py", line 4609, in _create_socket
+    sock = self._create_socket_connection()
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/site-packages/paho/mqtt/client.py", line 4640, in _create_socket_connection
+    return socket.create_connection(addr, timeout=self._connect_timeout, source_address=source)
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/socket.py", line 857, in create_connection
+    raise err
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/socket.py", line 845, in create_connection
+    sock.connect(sa)
+TimeoutError: timed out
+2025-07-23 16:08:48,653 [INFO] Initialize MQTT client, connect 10.166.179.5:1883
+2025-07-23 16:08:49,618 [INFO] MQTT Listening started (singleton mode)
+2025-07-23 16:08:49,905 [INFO] MQTT Connection successful, start subscription /modelPublish
+2025-07-23 16:09:26,264 [INFO] Initialize MQTT client, connect 10.166.179.5:1883
+2025-07-23 16:09:26,337 [INFO] MQTT Listening started (singleton mode)
+2025-07-23 16:09:26,417 [INFO] MQTT Connection successful, start subscription /modelPublish
+2025-07-23 16:10:02,458 [INFO] Initialize MQTT client, connect 10.166.179.5:1883
+2025-07-23 16:10:02,554 [INFO] MQTT Listening started (singleton mode)
+2025-07-23 16:10:02,649 [INFO] MQTT Connection successful, start subscription /modelPublish
+2025-07-23 16:10:06,354 [INFO] Initialize MQTT client, connect 10.166.179.5:1883
+2025-07-23 16:10:06,430 [INFO] MQTT Listening started (singleton mode)
+2025-07-23 16:10:06,505 [INFO] MQTT Connection successful, start subscription /modelPublish
+2025-07-23 16:10:10,581 [INFO] Initialize MQTT client, connect 10.166.179.5:1883
+2025-07-23 16:10:10,806 [INFO] MQTT Listening started (singleton mode)
+2025-07-23 16:10:10,899 [INFO] MQTT Connection successful, start subscription /modelPublish
+2025-07-23 16:11:25,441 [INFO] Initialize MQTT client, connect 10.166.179.5:1883
+2025-07-23 16:11:25,543 [INFO] MQTT Listening started (singleton mode)
+2025-07-23 16:11:25,619 [INFO] MQTT Connection successful, start subscription /modelPublish
+2025-07-23 16:12:10,852 [INFO] Initialize MQTT client, connect 10.166.179.5:1883
+2025-07-23 16:12:11,097 [INFO] MQTT Listening started (singleton mode)
+2025-07-23 16:12:11,189 [INFO] MQTT Connection successful, start subscription /modelPublish
+2025-07-23 16:12:24,634 [INFO] Initialize MQTT client, connect 10.166.179.5:1883
+2025-07-23 16:12:24,727 [INFO] MQTT Listening started (singleton mode)
+2025-07-23 16:12:24,808 [INFO] MQTT Connection successful, start subscription /modelPublish
+2025-07-23 16:13:42,360 [INFO] Initialize MQTT client, connect 10.166.179.5:1883
+2025-07-23 16:13:42,434 [INFO] MQTT Listening started (singleton mode)
+2025-07-23 16:13:42,513 [INFO] MQTT Connection successful, start subscription /modelPublish
+2025-07-23 16:14:23,584 [INFO] Initialize MQTT client, connect 10.166.179.5:1883
+2025-07-23 16:14:23,907 [INFO] MQTT Listening started (singleton mode)
+2025-07-23 16:14:24,001 [INFO] MQTT Connection successful, start subscription /modelPublish
+2025-07-23 16:21:46,696 [DEBUG] Receive payload: {"cow1": [1, 3, 0], "cow2": [3, 3, 0], "cow3": [3, 3, 0]}
+2025-07-23 16:21:52,498 [DEBUG] Receive payload: {"cow1": [1, 3, 0], "cow2": [3, 3, 0], "cow3": [3, 3, 0]}
+2025-07-23 16:21:55,490 [DEBUG] Receive payload: {"cow1": [1, 3, 0], "cow2": [3, 3, 0], "cow3": [3, 3, 0]}
+2025-07-23 16:21:57,131 [DEBUG] Receive payload: {"cow1": [1, 3, 0], "cow2": [3, 3, 0], "cow3": [3, 3, 0]}
+2025-07-23 16:21:57,219 [DEBUG] Receive payload: {"cow1": [1, 3, 0], "cow2": [3, 3, 0], "cow3": [3, 3, 0]}
+2025-07-23 16:21:57,292 [DEBUG] Receive payload: {"cow1": [1, 3, 0], "cow2": [3, 3, 0], "cow3": [3, 3, 0]}
+2025-07-23 16:21:57,380 [DEBUG] Receive payload: {"cow1": [1, 3, 0], "cow2": [3, 3, 0], "cow3": [3, 3, 0]}
+2025-07-23 16:21:57,460 [DEBUG] Receive payload: {"cow1": [1, 3, 0], "cow2": [3, 3, 0], "cow3": [3, 3, 0]}
+2025-07-23 16:21:57,551 [DEBUG] Receive payload: {"cow1": [1, 3, 0], "cow2": [3, 3, 0], "cow3": [3, 3, 0]}
+2025-07-23 16:21:57,632 [DEBUG] Receive payload: {"cow1": [1, 3, 0], "cow2": [3, 3, 0], "cow3": [3, 3, 0]}
+2025-07-23 16:22:08,982 [DEBUG] Receive payload: {"cow1": [1, 3, 0], "cow2": [3, 3, 0], "cow3": [3, 3, 0]}
+2025-08-04 21:03:09,338 [INFO] Initialize MQTT client, connect 10.166.179.5:1883
+2025-08-04 21:03:09,372 [INFO] MQTT Listening started (singleton mode)
+2025-08-04 21:03:09,395 [INFO] MQTT Connection successful, start subscription /modelPublish2
+2025-08-04 21:07:56,007 [INFO] Initialize MQTT client, connect 10.166.179.5:1883
+2025-08-04 21:07:56,044 [INFO] MQTT Listening started (singleton mode)
+2025-08-04 21:07:56,077 [INFO] MQTT Connection successful, start subscription /modelPublish2
+2025-08-04 21:14:16,799 [DEBUG] Receive payload: {
+  "cow1": [-70, -89, -81, -89, -66, -84],
+  "cow2": [-66, -91, -86, -85, -95, -90],
+  "cow3": [-87, -90, -62, null, -85, -96]
+}
+2025-08-04 21:15:17,859 [INFO] Initialize MQTT client, connect 10.166.179.5:1883
+2025-08-04 21:15:17,890 [INFO] MQTT Listening started (singleton mode)
+2025-08-04 21:15:17,923 [INFO] MQTT Connection successful, start subscription /modelPublish2
+2025-08-04 21:15:28,671 [DEBUG] Receive payload: {
+  "cow1": [-70, -89, -81, -89, -66, -84],
+  "cow2": [-66, -91, -86, -85, -95, -90],
+  "cow3": [-87, -90, -62, null, -85, -96]
+}
+2025-08-04 21:23:33,211 [INFO] Initialize MQTT client, connect 10.166.179.5:1883
+2025-08-04 21:23:33,244 [INFO] MQTT Listening started (singleton mode)
+2025-08-04 21:23:33,280 [INFO] MQTT Connection successful, start subscription /modelPublish
+2025-08-04 21:23:38,659 [INFO] Received interrupt signal, stopping listener...
+2025-08-04 21:23:39,334 [WARNING] MQTT Disconnected, return code MQTTErrorCode.MQTT_ERR_SUCCESS
+2025-08-04 21:23:39,336 [INFO] MQTT Client stopped
+2025-08-04 21:23:43,936 [INFO] Initialize MQTT client, connect 10.166.179.5:1883
+2025-08-04 21:23:43,975 [INFO] MQTT Listening started (singleton mode)
+2025-08-04 21:23:44,000 [INFO] MQTT Connection successful, start subscription /modelPublish
+2025-08-04 21:23:49,907 [DEBUG] Receive payload: {"cow1": [-3, 12, 1], "cow2": [10, 4, 1], "cow3": [3, 3, 0]}
+2025-08-04 21:23:49,908 [DEBUG] add cow1 in alarm_dictionary
+2025-08-04 21:23:49,908 [DEBUG] add cow2 in alarm_dictionary
+2025-08-04 21:24:00,563 [DEBUG] Receive payload: {"cow1": [-99, -99, 1], "cow2": [-99, -99, 1], "cow3": [-99, -99, 1]}
+2025-08-04 21:24:00,564 [DEBUG] add cow1 in alarm_dictionary
+2025-08-04 21:24:00,564 [DEBUG] add cow2 in alarm_dictionary
+2025-08-04 21:24:00,564 [DEBUG] add cow3 in alarm_dictionary
+2025-08-04 21:24:10,083 [DEBUG] Receive payload: {"cow1": [1, 3, 0], "cow2": [10, 4, 1], "cow3": [3, 3, 0]}
+2025-08-04 21:24:10,083 [DEBUG] del cow1 in alarm_dictionary
+2025-08-04 21:24:10,084 [DEBUG] add cow2 in alarm_dictionary
+2025-08-04 21:24:10,084 [DEBUG] del cow3 in alarm_dictionary
+2025-08-04 21:24:18,110 [DEBUG] Receive payload: {"cow1": [1, 3, 0], "cow2": [3, 3, 0], "cow3": [3, 3, 0]}
+2025-08-04 21:24:18,110 [DEBUG] del cow2 in alarm_dictionary
+2025-08-04 21:24:28,735 [DEBUG] Receive payload: {"cow1": [-99, -99, 1], "cow2": [-99, -99, 1], "cow3": [-99, -99, 1]}
+2025-08-04 21:24:28,736 [DEBUG] add cow1 in alarm_dictionary
+2025-08-04 21:24:28,736 [DEBUG] add cow2 in alarm_dictionary
+2025-08-04 21:24:28,737 [DEBUG] add cow3 in alarm_dictionary
+2025-08-04 21:24:44,698 [DEBUG] Receive payload: {"cow1": [1, 3, 0], "cow2": [10, 4, 1], "cow3": [3, 3, 0]}
+2025-08-04 21:24:44,699 [DEBUG] del cow1 in alarm_dictionary
+2025-08-04 21:24:44,699 [DEBUG] add cow2 in alarm_dictionary
+2025-08-04 21:24:44,699 [DEBUG] del cow3 in alarm_dictionary
+2025-08-04 21:24:54,066 [DEBUG] Receive payload: {"cow1": [1, 3, 0], "cow2": [3, 3, 0], "cow3": [3, 3, 0]}
+2025-08-04 21:24:54,067 [DEBUG] del cow2 in alarm_dictionary
+2025-08-04 21:25:04,918 [DEBUG] Receive payload: {"cow1": [-99, -99, 1], "cow2": [-99, -99, 1], "cow3": [-99, -99, 1]}
+2025-08-04 21:25:04,919 [DEBUG] add cow1 in alarm_dictionary
+2025-08-04 21:25:04,920 [DEBUG] add cow2 in alarm_dictionary
+2025-08-04 21:25:04,920 [DEBUG] add cow3 in alarm_dictionary
+2025-08-04 21:25:42,068 [INFO] Initialize MQTT client, connect 10.166.179.5:1883
+2025-08-04 21:25:42,100 [INFO] MQTT Listening started (singleton mode)
+2025-08-04 21:25:42,132 [INFO] MQTT Connection successful, start subscription /modelPublish
+2025-08-04 21:26:38,291 [DEBUG] Receive payload: {"cow1": [1, 3, 0], "cow2": [3, 3, 0], "cow3": [3, 3, 0]}
+2025-08-04 21:26:48,981 [INFO] Initialize MQTT client, connect 10.166.179.5:1883
+2025-08-04 21:26:49,010 [INFO] MQTT Listening started (singleton mode)
+2025-08-04 21:26:49,039 [INFO] MQTT Connection successful, start subscription /modelPublish
+2025-08-04 21:33:37,095 [INFO] Initialize MQTT client, connect 10.166.179.5:1883
+2025-08-04 21:33:37,125 [INFO] MQTT Listening started (singleton mode)
+2025-08-04 21:33:37,155 [INFO] MQTT Connection successful, start subscription /modelPublish
+2025-08-04 21:34:10,311 [INFO] Initialize MQTT client, connect 10.166.179.5:1883
+2025-08-04 21:34:10,340 [INFO] MQTT Listening started (singleton mode)
+2025-08-04 21:34:10,377 [INFO] MQTT Connection successful, start subscription /modelPublish
+2025-08-04 21:38:18,131 [INFO] Initialize MQTT client, connect 10.166.179.5:1883
+2025-08-04 21:38:18,190 [INFO] MQTT Listening started (singleton mode)
+2025-08-04 21:38:18,262 [INFO] MQTT Connection successful, start subscription /modelPublish
+2025-08-04 21:38:21,686 [DEBUG] Receive payload: {"cow1": [-3, 12, 1], "cow2": [10, 4, 1], "cow3": [3, 3, 0]}
+2025-08-04 21:38:21,687 [DEBUG] add cow1 in alarm_dictionary
+2025-08-04 21:38:21,687 [DEBUG] add cow2 in alarm_dictionary
+2025-08-04 21:38:29,692 [DEBUG] Receive payload: {"cow1": [1, 3, 0], "cow2": [10, 4, 1], "cow3": [3, 3, 0]}
+2025-08-04 21:38:29,693 [DEBUG] del cow1 in alarm_dictionary
+2025-08-04 21:38:29,693 [DEBUG] add cow2 in alarm_dictionary
+2025-08-04 21:38:37,946 [DEBUG] Receive payload: {"cow1": [1, 3, 0], "cow2": [3, 3, 0], "cow3": [3, 3, 0]}
+2025-08-04 21:38:37,948 [DEBUG] del cow2 in alarm_dictionary
+2025-08-04 21:43:18,728 [DEBUG] Receive payload: {"cow1": [1, 3, 0], "cow2": [3, 3, 0], "cow3": [3, 3, 0]}
+2025-08-04 21:44:06,847 [INFO] Initialize MQTT client, connect 10.166.179.5:1883
+2025-08-04 21:44:06,876 [INFO] MQTT Listening started (singleton mode)
+2025-08-04 21:44:06,908 [INFO] MQTT Connection successful, start subscription /modelPublish
+2025-08-04 21:44:16,158 [DEBUG] Receive payload: {"cow1": [1, 3, 0], "cow2": [3, 3, 0], "cow3": [3, 3, 0]}
+2025-08-04 21:44:46,678 [INFO] Initialize MQTT client, connect 10.166.179.5:1883
+2025-08-04 21:44:46,710 [INFO] MQTT Listening started (singleton mode)
+2025-08-04 21:44:46,739 [INFO] MQTT Connection successful, start subscription /modelPublish
+2025-08-04 21:44:50,963 [DEBUG] Receive payload: {"cow1": [1, 3, 0], "cow2": [3, 3, 0], "cow3": [3, 3, 0]}
+2025-08-04 21:45:02,578 [DEBUG] Receive payload: {"cow1": [-3, 12, 1], "cow2": [10, 4, 1], "cow3": [3, 3, 0]}
+2025-08-04 21:45:02,580 [DEBUG] add cow1 in alarm_dictionary
+2025-08-04 21:45:02,580 [DEBUG] add cow2 in alarm_dictionary
+2025-08-04 21:45:13,115 [DEBUG] Receive payload: {"cow1": [1, 3, 0], "cow2": [10, 4, 1], "cow3": [3, 3, 0]}
+2025-08-04 21:45:13,116 [DEBUG] del cow1 in alarm_dictionary
+2025-08-04 21:45:13,116 [DEBUG] add cow2 in alarm_dictionary
+2025-08-04 21:45:21,715 [DEBUG] Receive payload: {"cow1": [1, 3, 0], "cow2": [3, 3, 0], "cow3": [3, 3, 0]}
+2025-08-04 21:45:21,715 [DEBUG] del cow2 in alarm_dictionary
+2025-08-04 21:46:13,210 [DEBUG] Receive payload: {"cow1": [-3, 12, 1], "cow2": [10, 4, 1], "cow3": [3, 3, 0]}
+2025-08-04 21:46:13,224 [DEBUG] add cow1 in alarm_dictionary
+2025-08-04 21:46:13,224 [DEBUG] add cow2 in alarm_dictionary
+2025-08-04 21:46:27,312 [DEBUG] Receive payload: {"cow1": [1, 3, 0], "cow2": [10, 4, 1], "cow3": [3, 3, 0]}
+2025-08-04 21:46:27,313 [DEBUG] del cow1 in alarm_dictionary
+2025-08-04 21:46:27,313 [DEBUG] add cow2 in alarm_dictionary
+2025-08-04 21:46:38,528 [DEBUG] Receive payload: {"cow1": [1, 3, 0], "cow2": [3, 3, 0], "cow3": [3, 3, 0]}
+2025-08-04 21:46:38,529 [DEBUG] del cow2 in alarm_dictionary
+2025-08-04 21:49:04,217 [DEBUG] Receive payload: {"cow1": [-3, 12, 1], "cow2": [10, 4, 1], "cow3": [3, 3, 0]}
+2025-08-04 21:49:04,219 [DEBUG] add cow1 in alarm_dictionary
+2025-08-04 21:49:04,219 [DEBUG] add cow2 in alarm_dictionary
+2025-08-04 21:49:15,027 [DEBUG] Receive payload: {"cow1": [1, 3, 0], "cow2": [10, 4, 1], "cow3": [3, 3, 0]}
+2025-08-04 21:49:15,027 [DEBUG] del cow1 in alarm_dictionary
+2025-08-04 21:49:15,027 [DEBUG] add cow2 in alarm_dictionary
+2025-08-04 21:49:24,161 [DEBUG] Receive payload: {"cow1": [1, 3, 0], "cow2": [3, 3, 0], "cow3": [3, 3, 0]}
+2025-08-04 21:49:24,162 [DEBUG] del cow2 in alarm_dictionary
+2025-08-04 21:52:07,593 [DEBUG] Receive payload: {"cow1": [1, 3, 0], "cow2": [3, 3, 0], "cow3": [3, 3, 0]}
+2025-08-04 21:52:57,636 [DEBUG] Receive payload: {"cow1": [-3, 12, 1], "cow2": [10, 4, 1], "cow3": [3, 3, 0]}
+2025-08-04 21:52:57,637 [DEBUG] add cow1 in alarm_dictionary
+2025-08-04 21:52:57,638 [DEBUG] add cow2 in alarm_dictionary
+2025-08-04 21:53:04,650 [DEBUG] Receive payload: {"cow1": [1, 3, 0], "cow2": [10, 4, 1], "cow3": [3, 3, 0]}
+2025-08-04 21:53:04,650 [DEBUG] del cow1 in alarm_dictionary
+2025-08-04 21:53:04,650 [DEBUG] add cow2 in alarm_dictionary
+2025-08-04 21:53:11,684 [DEBUG] Receive payload: {"cow1": [1, 3, 0], "cow2": [3, 3, 0], "cow3": [3, 3, 0]}
+2025-08-04 21:53:11,685 [DEBUG] del cow2 in alarm_dictionary
+2025-08-04 21:54:10,168 [DEBUG] Receive payload: {"cow1": [-3, 12, 1], "cow2": [10, 4, 1], "cow3": [3, 3, 0]}
+2025-08-04 21:54:10,169 [DEBUG] add cow1 in alarm_dictionary
+2025-08-04 21:54:10,170 [DEBUG] add cow2 in alarm_dictionary
+2025-08-04 21:54:21,176 [DEBUG] Receive payload: {"cow1": [1, 3, 0], "cow2": [10, 4, 1], "cow3": [3, 3, 0]}
+2025-08-04 21:54:21,177 [DEBUG] del cow1 in alarm_dictionary
+2025-08-04 21:54:21,177 [DEBUG] add cow2 in alarm_dictionary
+2025-08-04 21:54:29,058 [DEBUG] Receive payload: {"cow1": [1, 3, 0], "cow2": [3, 3, 0], "cow3": [3, 3, 0]}
+2025-08-04 21:54:29,059 [DEBUG] del cow2 in alarm_dictionary
+2025-08-04 21:55:10,901 [DEBUG] Receive payload: {"cow1": [-3, 12, 1], "cow2": [10, 4, 1], "cow3": [3, 3, 0]}
+2025-08-04 21:55:10,902 [DEBUG] add cow1 in alarm_dictionary
+2025-08-04 21:55:10,903 [DEBUG] add cow2 in alarm_dictionary
+2025-08-04 21:55:21,097 [DEBUG] Receive payload: {"cow1": [1, 3, 0], "cow2": [10, 4, 1], "cow3": [3, 3, 0]}
+2025-08-04 21:55:21,098 [DEBUG] del cow1 in alarm_dictionary
+2025-08-04 21:55:21,098 [DEBUG] add cow2 in alarm_dictionary
+2025-08-04 21:55:29,472 [DEBUG] Receive payload: {"cow1": [1, 3, 0], "cow2": [3, 3, 0], "cow3": [3, 3, 0]}
+2025-08-04 21:55:29,472 [DEBUG] del cow2 in alarm_dictionary
+2025-08-04 21:56:34,599 [DEBUG] Receive payload: {"cow1": [-3, 12, 1], "cow2": [10, 4, 1], "cow3": [3, 3, 0]}
+2025-08-04 21:56:34,612 [DEBUG] add cow1 in alarm_dictionary
+2025-08-04 21:56:34,612 [DEBUG] add cow2 in alarm_dictionary
+2025-08-04 21:56:42,682 [DEBUG] Receive payload: {"cow1": [1, 3, 0], "cow2": [10, 4, 1], "cow3": [3, 3, 0]}
+2025-08-04 21:56:42,683 [DEBUG] del cow1 in alarm_dictionary
+2025-08-04 21:56:42,683 [DEBUG] add cow2 in alarm_dictionary
+2025-08-04 21:56:52,679 [DEBUG] Receive payload: {"cow1": [1, 3, 0], "cow2": [3, 3, 0], "cow3": [3, 3, 0]}
+2025-08-04 21:56:52,680 [DEBUG] del cow2 in alarm_dictionary
+2025-08-04 21:57:14,560 [DEBUG] Receive payload: {"cow1": [-3, 12, 1], "cow2": [10, 4, 1], "cow3": [3, 3, 0]}
+2025-08-04 21:57:14,569 [DEBUG] add cow1 in alarm_dictionary
+2025-08-04 21:57:14,569 [DEBUG] add cow2 in alarm_dictionary
+2025-08-04 21:57:23,014 [DEBUG] Receive payload: {"cow1": [1, 3, 0], "cow2": [10, 4, 1], "cow3": [3, 3, 0]}
+2025-08-04 21:57:23,016 [DEBUG] del cow1 in alarm_dictionary
+2025-08-04 21:57:23,017 [DEBUG] add cow2 in alarm_dictionary
+2025-08-04 21:57:31,595 [DEBUG] Receive payload: {"cow1": [1, 3, 0], "cow2": [3, 3, 0], "cow3": [3, 3, 0]}
+2025-08-04 21:57:31,596 [DEBUG] del cow2 in alarm_dictionary
+2025-08-05 11:45:13,715 [INFO] Initialize MQTT client, connect 10.166.179.5:1883
+2025-08-05 11:45:13,733 [INFO] MQTT Listening started (singleton mode)
+2025-08-05 11:45:13,751 [INFO] MQTT Connection successful, start subscription /modelPublish
+2025-08-05 11:45:18,241 [DEBUG] Receive payload: {"cow1": [-3, 12, 1]}
+2025-08-05 11:45:18,242 [DEBUG] add cow1 in alarm_dictionary
+2025-08-05 11:46:50,792 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 11:46:50,793 [DEBUG] del cow1 in alarm_dictionary
+2025-08-05 11:47:17,072 [DEBUG] Receive payload: {"cow2": [10, 4, 1]}
+2025-08-05 11:47:17,073 [DEBUG] add cow2 in alarm_dictionary
+2025-08-05 11:47:28,527 [DEBUG] Receive payload: {"cow2": [10, 4, 1]}
+2025-08-05 11:47:28,528 [DEBUG] add cow2 in alarm_dictionary
+2025-08-05 11:48:54,339 [DEBUG] Receive payload: {"cow2": [3, 3, 0]}
+2025-08-05 11:48:54,341 [DEBUG] del cow2 in alarm_dictionary
+2025-08-05 12:14:59,799 [INFO] Initialize MQTT client, connect 10.166.179.5:1883
+2025-08-05 12:14:59,860 [INFO] MQTT Listening started (singleton mode)
+2025-08-05 12:14:59,889 [INFO] MQTT Connection successful, start subscription /modelPublish
+2025-08-05 12:15:10,761 [INFO] Initialize MQTT client, connect 10.166.179.5:1883
+2025-08-05 12:15:10,777 [INFO] MQTT Listening started (singleton mode)
+2025-08-05 12:15:10,799 [INFO] MQTT Connection successful, start subscription /modelPublish
+2025-08-05 12:16:26,303 [DEBUG] Receive payload: {}
+2025-08-05 12:18:20,251 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 12:18:39,794 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 12:18:40,577 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 12:18:41,384 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 12:18:42,143 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 12:18:43,276 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 12:18:43,894 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 12:18:44,772 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 12:18:45,754 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 12:18:46,921 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 12:18:47,980 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 12:18:48,845 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 12:21:35,553 [DEBUG] Receive payload: {"cow1": [-99, -99, 1]}
+2025-08-05 12:21:35,555 [DEBUG] add cow1 in alarm_dictionary
+2025-08-05 12:51:11,343 [WARNING] MQTT Disconnected, return code MQTTErrorCode.MQTT_ERR_CONN_LOST
+2025-08-05 12:51:11,347 [INFO] Unexpected disconnection, attempting to reconnect...
+2025-08-05 13:07:30,951 [ERROR] Reconnection failed (1/5): timed out
+Traceback (most recent call last):
+  File "/Users/jdk/github_repos/VirtualFencingTechnology-for-RotationalGrazing/code_backend/lib/listen_event.py", line 59, in on_disconnect
+    client.reconnect()
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/site-packages/paho/mqtt/client.py", line 1598, in reconnect
+    self._sock = self._create_socket()
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/site-packages/paho/mqtt/client.py", line 4609, in _create_socket
+    sock = self._create_socket_connection()
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/site-packages/paho/mqtt/client.py", line 4640, in _create_socket_connection
+    return socket.create_connection(addr, timeout=self._connect_timeout, source_address=source)
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/socket.py", line 857, in create_connection
+    raise err
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/socket.py", line 845, in create_connection
+    sock.connect(sa)
+TimeoutError: timed out
+2025-08-05 13:40:32,317 [ERROR] Reconnection failed (2/5): timed out
+Traceback (most recent call last):
+  File "/Users/jdk/github_repos/VirtualFencingTechnology-for-RotationalGrazing/code_backend/lib/listen_event.py", line 59, in on_disconnect
+    client.reconnect()
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/site-packages/paho/mqtt/client.py", line 1598, in reconnect
+    self._sock = self._create_socket()
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/site-packages/paho/mqtt/client.py", line 4609, in _create_socket
+    sock = self._create_socket_connection()
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/site-packages/paho/mqtt/client.py", line 4640, in _create_socket_connection
+    return socket.create_connection(addr, timeout=self._connect_timeout, source_address=source)
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/socket.py", line 857, in create_connection
+    raise err
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/socket.py", line 845, in create_connection
+    sock.connect(sa)
+TimeoutError: timed out
+2025-08-05 13:52:07,628 [ERROR] Reconnection failed (3/5): timed out
+Traceback (most recent call last):
+  File "/Users/jdk/github_repos/VirtualFencingTechnology-for-RotationalGrazing/code_backend/lib/listen_event.py", line 59, in on_disconnect
+    client.reconnect()
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/site-packages/paho/mqtt/client.py", line 1598, in reconnect
+    self._sock = self._create_socket()
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/site-packages/paho/mqtt/client.py", line 4609, in _create_socket
+    sock = self._create_socket_connection()
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/site-packages/paho/mqtt/client.py", line 4640, in _create_socket_connection
+    return socket.create_connection(addr, timeout=self._connect_timeout, source_address=source)
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/socket.py", line 857, in create_connection
+    raise err
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/socket.py", line 845, in create_connection
+    sock.connect(sa)
+TimeoutError: timed out
+2025-08-05 13:52:12,648 [INFO] MQTT Reconnection successful
+2025-08-05 13:52:13,695 [INFO] MQTT Connection successful, start subscription /modelPublish
+2025-08-05 14:43:21,820 [INFO] Initialize MQTT client, connect 10.166.179.5:1883
+2025-08-05 14:43:21,891 [INFO] MQTT Listening started (singleton mode)
+2025-08-05 14:43:21,951 [INFO] MQTT Connection successful, start subscription /modelPublish
+2025-08-05 14:43:24,725 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 14:45:04,101 [DEBUG] Receive payload: {"cow1": [-3, 12, 1]}
+2025-08-05 14:45:04,104 [DEBUG] add cow1 in alarm_dictionary
+2025-08-05 14:45:22,902 [DEBUG] Receive payload: {"cow1": [13, 3, 0]}
+2025-08-05 14:45:22,904 [DEBUG] del cow1 in alarm_dictionary
+2025-08-05 15:07:05,965 [DEBUG] Receive payload: {"cow1": [1, 1, 0]}
+2025-08-05 15:07:16,328 [DEBUG] Receive payload: {"cow1": [1, 1, 0]}
+2025-08-05 15:07:26,386 [DEBUG] Receive payload: {"cow1": [1, 5, 0]}
+2025-08-05 15:07:46,461 [DEBUG] Receive payload: {"cow1": [10, 4, 1]}
+2025-08-05 15:07:46,462 [DEBUG] add cow1 in alarm_dictionary
+2025-08-05 15:08:04,810 [DEBUG] Receive payload: {"cow1": [5, 5, 0]}
+2025-08-05 15:08:04,812 [DEBUG] del cow1 in alarm_dictionary
+2025-08-05 15:08:20,816 [DEBUG] Receive payload: {"cow1": [9, 5, 0]}
+2025-08-05 15:08:36,948 [DEBUG] Receive payload: {"cow1": [11, 1, 0]}
+2025-08-05 15:08:48,926 [DEBUG] Receive payload: {"cow1": [-3, 12, 1]}
+2025-08-05 15:08:48,928 [DEBUG] add cow1 in alarm_dictionary
+2025-08-05 15:09:03,144 [DEBUG] Receive payload: {"cow1": [13, 3, 0]}
+2025-08-05 15:09:03,146 [DEBUG] del cow1 in alarm_dictionary
+2025-08-05 15:14:18,821 [INFO] Initialize MQTT client, connect 10.166.179.5:1883
+2025-08-05 15:14:23,826 [ERROR] MQTT Connection abnormality: timed out
+Traceback (most recent call last):
+  File "/Users/jdk/github_repos/VirtualFencingTechnology-for-RotationalGrazing/code_backend/lib/listen_event.py", line 116, in start_mqtt_listener
+    client.connect(broker_url, broker_port, keepalive=60)
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/site-packages/paho/mqtt/client.py", line 1435, in connect
+    return self.reconnect()
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/site-packages/paho/mqtt/client.py", line 1598, in reconnect
+    self._sock = self._create_socket()
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/site-packages/paho/mqtt/client.py", line 4609, in _create_socket
+    sock = self._create_socket_connection()
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/site-packages/paho/mqtt/client.py", line 4640, in _create_socket_connection
+    return socket.create_connection(addr, timeout=self._connect_timeout, source_address=source)
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/socket.py", line 857, in create_connection
+    raise err
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/socket.py", line 845, in create_connection
+    sock.connect(sa)
+TimeoutError: timed out
+2025-08-05 15:14:34,337 [INFO] Initialize MQTT client, connect 10.166.179.5:1883
+2025-08-05 15:14:39,343 [ERROR] MQTT Connection abnormality: timed out
+Traceback (most recent call last):
+  File "/Users/jdk/github_repos/VirtualFencingTechnology-for-RotationalGrazing/code_backend/lib/listen_event.py", line 116, in start_mqtt_listener
+    client.connect(broker_url, broker_port, keepalive=60)
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/site-packages/paho/mqtt/client.py", line 1435, in connect
+    return self.reconnect()
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/site-packages/paho/mqtt/client.py", line 1598, in reconnect
+    self._sock = self._create_socket()
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/site-packages/paho/mqtt/client.py", line 4609, in _create_socket
+    sock = self._create_socket_connection()
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/site-packages/paho/mqtt/client.py", line 4640, in _create_socket_connection
+    return socket.create_connection(addr, timeout=self._connect_timeout, source_address=source)
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/socket.py", line 857, in create_connection
+    raise err
+  File "/opt/anaconda3/envs/vitualfencing_env/lib/python3.10/socket.py", line 845, in create_connection
+    sock.connect(sa)
+TimeoutError: timed out
+2025-08-05 15:14:48,545 [INFO] Initialize MQTT client, connect 10.166.179.5:1883
+2025-08-05 15:17:15,551 [INFO] Initialize MQTT client, connect 10.166.179.5:1883
+2025-08-05 15:17:15,592 [INFO] MQTT Listening started (singleton mode)
+2025-08-05 15:17:15,614 [INFO] MQTT Connection successful, start subscription /modelPublish
+2025-08-05 15:18:41,893 [DEBUG] Receive payload: {"cow1": [1, 1, 0]}
+2025-08-05 15:18:58,903 [DEBUG] Receive payload: {"cow1": [1, 1, 0]}
+2025-08-05 15:19:12,560 [DEBUG] Receive payload: {"cow1": [1, 1, 0]}
+2025-08-05 15:19:23,772 [DEBUG] Receive payload: {"cow1": [10, 4, 1]}
+2025-08-05 15:19:23,774 [DEBUG] add cow1 in alarm_dictionary
+2025-08-05 15:19:38,017 [DEBUG] Receive payload: {"cow1": [5, 5, 0]}
+2025-08-05 15:19:38,019 [DEBUG] del cow1 in alarm_dictionary
+2025-08-05 15:19:52,320 [DEBUG] Receive payload: {"cow1": [9, 5, 0]}
+2025-08-05 15:20:04,736 [DEBUG] Receive payload: {"cow1": [11, 1, 0]}
+2025-08-05 15:20:12,225 [DEBUG] Receive payload: {"cow1": [-3, 12, 1]}
+2025-08-05 15:20:12,227 [DEBUG] add cow1 in alarm_dictionary
+2025-08-05 15:20:23,921 [DEBUG] Receive payload: {"cow1": [13, 3, 0]}
+2025-08-05 15:20:23,923 [DEBUG] del cow1 in alarm_dictionary
+2025-08-05 15:22:12,560 [DEBUG] Receive payload: {"cow1": [1, 1, 0]}
+2025-08-05 15:22:34,000 [DEBUG] Receive payload: {"cow1": [1, 5, 0]}
+2025-08-05 15:22:41,678 [DEBUG] Receive payload: {"cow1": [10, 4, 1]}
+2025-08-05 15:22:41,680 [DEBUG] add cow1 in alarm_dictionary
+2025-08-05 15:24:10,851 [DEBUG] Receive payload: {"cow1": [1, 1, 0]}
+2025-08-05 15:24:10,853 [DEBUG] del cow1 in alarm_dictionary
+2025-08-05 15:24:30,026 [DEBUG] Receive payload: {"cow1": [1, 1, 0]}
+2025-08-05 15:24:48,381 [DEBUG] Receive payload: {"cow1": [1, 5, 0]}
+2025-08-05 15:24:59,239 [DEBUG] Receive payload: {"cow1": [10, 4, 1]}
+2025-08-05 15:24:59,241 [DEBUG] add cow1 in alarm_dictionary
+2025-08-05 15:25:12,168 [DEBUG] Receive payload: {"cow1": [5, 5, 0]}
+2025-08-05 15:25:12,170 [DEBUG] del cow1 in alarm_dictionary
+2025-08-05 15:25:24,725 [DEBUG] Receive payload: {"cow1": [9, 5, 0]}
+2025-08-05 15:25:35,770 [DEBUG] Receive payload: {"cow1": [11, 1, 0]}
+2025-08-05 15:25:45,877 [DEBUG] Receive payload: {"cow1": [-3, 12, 1]}
+2025-08-05 15:25:45,881 [DEBUG] add cow1 in alarm_dictionary
+2025-08-05 15:25:57,130 [DEBUG] Receive payload: {"cow1": [13, 3, 0]}
+2025-08-05 15:25:57,132 [DEBUG] del cow1 in alarm_dictionary
+2025-08-05 15:29:51,872 [DEBUG] Receive payload: { "cow1": [-99,-99,1]}
+
+2025-08-05 15:29:51,875 [DEBUG] add cow1 in alarm_dictionary
+2025-08-05 15:31:54,033 [DEBUG] Receive payload: {"cow1": [1, 1, 0]}
+2025-08-05 15:31:54,035 [DEBUG] del cow1 in alarm_dictionary
+2025-08-05 15:31:54,303 [DEBUG] Receive payload: {"cow1": [1, 1, 0]}
+2025-08-05 15:33:12,524 [DEBUG] Receive payload: { "cow1": [-99,-99,1]}
+
+2025-08-05 15:33:12,527 [DEBUG] add cow1 in alarm_dictionary
+2025-08-05 15:34:33,919 [DEBUG] Receive payload: {"cow1": [1, 1, 0]}
+2025-08-05 15:34:33,922 [DEBUG] del cow1 in alarm_dictionary
+2025-08-05 15:34:35,713 [DEBUG] Receive payload: {"cow1": [1, 1, 0]}
+2025-08-05 15:35:17,502 [DEBUG] Receive payload: { "cow1": [-99,-99,1]}
+
+2025-08-05 15:35:17,504 [DEBUG] add cow1 in alarm_dictionary
+2025-08-05 15:36:06,038 [DEBUG] Receive payload: {"cow1": [1, 1, 0]}
+2025-08-05 15:36:06,040 [DEBUG] del cow1 in alarm_dictionary
+2025-08-05 15:36:06,094 [DEBUG] Receive payload: {"cow1": [1, 1, 0]}
+2025-08-05 15:37:00,925 [DEBUG] Receive payload: { "cow1": [-99,-99,1]}
+
+2025-08-05 15:37:00,928 [DEBUG] add cow1 in alarm_dictionary
+2025-08-05 15:37:47,858 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:37:47,860 [DEBUG] del cow1 in alarm_dictionary
+2025-08-05 15:37:53,873 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:38:01,921 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:38:05,857 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:38:11,881 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:38:18,440 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:38:23,921 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:38:30,166 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:38:35,904 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:38:41,943 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:38:47,882 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:38:53,924 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:38:59,965 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:39:05,869 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:39:11,946 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:39:17,887 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:39:23,867 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:39:29,968 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:39:35,870 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:39:41,950 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:39:47,888 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:39:54,473 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:39:59,874 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:40:06,002 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:40:11,877 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:40:18,083 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:40:23,920 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:40:29,962 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:40:35,878 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:40:41,880 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:40:47,893 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:40:53,985 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:40:59,881 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:41:05,965 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:41:11,885 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:41:17,946 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:41:23,987 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:41:29,883 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:41:35,886 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:41:41,890 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:41:48,160 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:41:53,993 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:41:59,900 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:42:05,971 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:42:11,908 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:42:17,953 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:42:23,993 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:42:30,028 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:42:36,283 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:42:41,950 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:42:47,955 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:42:54,003 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:42:59,936 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:43:05,978 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:43:11,936 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:43:17,959 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:43:23,932 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:43:30,041 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:43:35,983 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:43:42,022 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:43:47,961 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:43:54,002 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:43:59,943 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:44:05,945 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:44:12,025 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:44:18,044 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:44:24,083 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:44:30,030 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:44:36,066 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:44:42,107 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:44:48,045 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:44:54,087 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:45:00,128 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:45:06,067 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:45:12,035 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:45:18,051 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:45:24,091 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:45:30,132 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:45:36,041 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:45:42,114 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:45:48,053 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:45:54,094 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:46:00,048 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:46:06,051 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:46:12,077 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:46:18,159 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:46:24,097 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:46:30,142 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:46:36,184 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:46:42,120 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:46:48,164 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:46:54,102 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:47:00,148 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:47:06,116 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:47:12,095 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:47:18,146 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:47:24,290 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:47:30,169 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:47:36,096 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:47:42,157 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:47:48,180 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:47:54,122 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:48:00,106 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:48:06,197 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:48:12,132 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:48:18,103 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:48:24,103 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:48:30,215 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:48:36,199 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:48:42,135 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:48:48,180 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
+2025-08-05 15:48:54,110 [DEBUG] Receive payload: {"cow1": [1, 3, 0]}
